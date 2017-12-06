@@ -84,6 +84,7 @@
     <Compile Include="Assets\Resources\Scripts\BallScript.cs" />
     <Compile Include="Assets\Resources\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Resources\Scripts\PaddleScript.cs" />
+    <Compile Include="Assets\Resources\Scripts\ScoreScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
