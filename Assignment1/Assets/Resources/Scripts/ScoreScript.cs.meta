@@ -1,10 +1,19 @@
 fileFormatVersion: 2
 guid: 0f50e768c369e954c88c393fdde56cfe
-timeCreated: 1512399027
+timeCreated: 1513288650
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - blueGoalText: {fileID: 114733864444094836, guid: 4f2959e6fd4436b45ba1ecad21f2e8c3,
+      type: 2}
+  - redGoalText: {fileID: 114569645185723878, guid: 4f2959e6fd4436b45ba1ecad21f2e8c3,
+      type: 2}
+  - blueScoreText: {fileID: 114708045709927234, guid: 4f2959e6fd4436b45ba1ecad21f2e8c3,
+      type: 2}
+  - redScoreText: {fileID: 114170039456646238, guid: 4f2959e6fd4436b45ba1ecad21f2e8c3,
+      type: 2}
+  - ball: {fileID: 1136820189917716, guid: e22afc3f4b07fc54784aa0481299f758, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

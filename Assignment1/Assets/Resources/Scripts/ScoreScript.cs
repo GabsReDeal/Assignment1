@@ -22,6 +22,8 @@ public class ScoreScript : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad(this);
+        DontDestroyOnLoad(blueScoreText);
+        DontDestroyOnLoad(redScoreText);
         print("Did not destroy " + this);
         print("Blue Total Score: " + blueScore);
         print("Red Total Score: " + redScore);
