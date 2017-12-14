@@ -6,7 +6,7 @@ public class BallScript : MonoBehaviour {
 
     private Rigidbody2D rb;
     private Vector2 vel;
-
+    public int speed;
     // Use this for initialization
     void Start () {
 
@@ -24,11 +24,11 @@ public class BallScript : MonoBehaviour {
         float rand = Random.Range(0, 2);
         if (rand < 1)
         {
-            rb.AddForce(new Vector2(35, -5));
+            rb.AddForce(new Vector2(speed, -5));
         }
         else
         {
-            rb.AddForce(new Vector2(-35, -5));
+            rb.AddForce(new Vector2((speed*-1), -5));
         }
         
     }

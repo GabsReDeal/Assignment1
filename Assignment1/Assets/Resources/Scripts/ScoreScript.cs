@@ -1,62 +1,103 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour {
 
-    public int maxScore;
-    private int blueScore;
-    private int redScore;
-    GameObject ball;
-
+    public Text blueGoalText;
+    public Text redGoalText;
+    public Text blueScoreText;
+    public Text redScoreText;
+    public int maxGoal;
+    private int blueGoal;
+    private int redGoal;
+    int blueScore;
+    int redScore;
+    public GameObject ball;
+  
     LevelManager levelManager = new LevelManager();
+
     //BallScript ballScript = new BallScript();
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+        print("Did not destroy " + this);
+        print("Blue Total Score: " + blueScore);
+        print("Red Total Score: " + redScore);
+    }
 
     // Use this for initialization
     void Start () {
-        ball = GameObject.FindGameObjectWithTag("Ball");
-        blueScore = 0;
-        redScore = 0;
+        blueGoal = 0;
+        redGoal = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-        
-    void OnTriggerEnter2D(Collider2D collision)
+    }
+
+    public void BlueScores()
     {
-        if(transform.name == "Blue_Score_Border")
+        blueGoal++;
+        blueScore += addScore();
+        //print("Blue: " + blueGoal + "/" + maxGoal);
+        //print("Blue Score: " + blueScore);
+        blueGoalText.text = ("Goals : " + blueGoal);
+        blueScoreText.text = ("Score : " + blueScore);
+
+        if (blueGoal >= maxGoal)
         {
-            blueScore++;
-            print("Blue: " + blueScore);
-            if(blueScore >= maxScore)
-            {
-                levelManager.LoadNextScene();
-            }
-            else
-            {
-                ball.SendMessage("BallReset", null, SendMessageOptions.RequireReceiver);
-            }
-            
-            //ballScript.BallReset();
-
+            levelManager.LoadNextScene();
         }
-        else if(transform.name == "Red_Score_Border")
+        else
         {
-            redScore++;
-            print("Red: " + redScore);
-            if (redScore >= maxScore)
-            {
-                levelManager.LoadNextScene();
-            }
-            else
-            {
-                ball.SendMessage("BallReset", null, SendMessageOptions.RequireReceiver);
-            }
-
-            //ballScript.BallReset();
-
+            ball.SendMessage("BallReset", null, SendMessageOptions.RequireReceiver);
         }
+
+        //ballScript.BallReset();
+    }
+
+    public void RedScores()
+    {
+        redGoal++;
+        redScore += addScore();
+        //print("Red Goal: " + redGoal + "/" + maxGoal);
+        //print("Red Score: " + redScore);
+        redGoalText.text = ("Goals : " + redGoal);
+        redScoreText.text = ("Score : " + redScore);
+
+        if (redGoal >= maxGoal)
+        {
+            levelManager.LoadNextScene();
+        }
+        else
+        {
+            ball.SendMessage("BallReset", null, SendMessageOptions.RequireReceiver);
+        }
+
+        //ballScript.BallReset();
+    }
+
+
+    int addScore()
+    {
+
+        int score = 0;
+
+        if (levelManager.GetSceneName() == "Level1")
+        {
+            score = 10;
+        }
+        else if (levelManager.GetSceneName() == "Level2")
+        {
+            score = 15;
+        }
+        else if (levelManager.GetSceneName() == "Level3")
+        {
+            score = 20;
+        }
+
+        return score;
     }
 }

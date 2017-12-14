@@ -30,4 +30,10 @@ public class LevelManager : MonoBehaviour {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene + 1);
     }
+
+    public string GetSceneName()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        return currentScene;
+    }
 }
