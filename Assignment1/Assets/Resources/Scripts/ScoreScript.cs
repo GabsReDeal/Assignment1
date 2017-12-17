@@ -12,28 +12,28 @@ public class ScoreScript : MonoBehaviour {
     public int maxGoal;
     private int blueGoal;
     private int redGoal;
-    int blueScore;
-    int redScore;
+    public static int blueScore;
+    public static int redScore;
     public GameObject ball;
   
     LevelManager levelManager = new LevelManager();
 
     //BallScript ballScript = new BallScript();
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-        DontDestroyOnLoad(blueScoreText);
-        DontDestroyOnLoad(redScoreText);
-        print("Did not destroy " + this);
-        print("Blue Total Score: " + blueScore);
-        print("Red Total Score: " + redScore);
-    }
 
     // Use this for initialization
     void Start () {
+        if(levelManager.GetSceneName() == "Level1")
+        {
+            blueScore = 0;
+            redScore = 0;
+        }
+
         blueGoal = 0;
         redGoal = 0;
-	}
+
+        blueScoreText.text = ("Score : " + blueScore);
+        redScoreText.text = ("Score : " + redScore);
+    }
 	
 	// Update is called once per frame
 	void Update () {

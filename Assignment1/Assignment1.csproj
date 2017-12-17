@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\BallScript.cs" />
+    <Compile Include="Assets\Resources\Scripts\EndScript.cs" />
     <Compile Include="Assets\Resources\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Resources\Scripts\ObstacleScript.cs" />
     <Compile Include="Assets\Resources\Scripts\PaddleScript.cs" />
